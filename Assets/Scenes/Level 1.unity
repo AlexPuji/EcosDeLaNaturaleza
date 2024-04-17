@@ -17492,8 +17492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f51412d5dd291c4381673208cd637c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesKilled: 0
-  enemiesToKill: 200
   missionText: {fileID: 1727933553}
 --- !u!114 &451938500
 MonoBehaviour:
@@ -91869,24 +91867,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1777296039}
     m_Modifications:
     - target: {fileID: 1595846822992765915, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
-      propertyPath: levelToLoad
-      value: Level 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1595846822992765915, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
       propertyPath: playerReserve
       value: 
       objectReference: {fileID: 1006941629}
     - target: {fileID: 1617294557964917072, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
       propertyPath: m_Name
       value: Character1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617294557964917072, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400549868229482923, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3059092994917786993, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
       propertyPath: ammoText
@@ -92071,6 +92057,6 @@ SceneRoots:
   - {fileID: 451938494}
   - {fileID: 166852274}
   - {fileID: 848293214}
-  - {fileID: 1406646585}
-  - {fileID: 1777296039}
   - {fileID: 1345057418}
+  - {fileID: 1777296039}
+  - {fileID: 1406646585}

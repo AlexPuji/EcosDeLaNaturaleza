@@ -9,6 +9,9 @@ public class EnemyHealth : MonoBehaviour
     public TextController textController;
     public MisionManager missionManager;
 
+    
+    public bool ContributesToMission = true;
+
     void Start()
     {
         textController = FindObjectOfType<TextController>();
@@ -29,14 +32,13 @@ public class EnemyHealth : MonoBehaviour
     {
         if (textController != null)
         {
-            
             textController.SumarPuntos(100);
         }
-        if (missionManager != null)
+
+        
+        if (missionManager != null && ContributesToMission)
         {
             missionManager.EnemyKilled();
-            
-
         }
 
         Destroy(gameObject);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     public Button playButton;
-    public string sceneToLoad = "Scene/SampleScene"; // Ajustar el nombre de la escena aquí
+    public string sceneToLoad = "Level 2"; //Poner Nombre de la escena que toque
 
     private SceneLoader sceneLoader;
 
@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
 
         if (sceneLoader == null)
         {
-            Debug.LogError("No se encontró un objeto SceneLoader en la escena.");
+            Debug.LogError("No se encontró un objeto SceneLoader en la escena.");//Revisar si salta debug
         }
 
         playButton.onClick.AddListener(LoadNextScene);
@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No se puede cargar la escena porque no se encontró un objeto SceneLoader.");
+            Debug.LogError("No se puede cargar la escena porque no se encontró un objeto SceneLoader.");// Revisar si salta debug
         }
     }
 }
