@@ -7,8 +7,8 @@ public class CountDownTimer : MonoBehaviour
 {
     public Text countdownText;
     public float timeRemaining = 5f;
-    public GameStarter gameStarter; // Referencia al script GameStarter
-    private bool isTimerRunning = true; // Variable para controlar si el temporizador está corriendo
+    public GameStarter gameStarter; // Referencia GameStarter Script
+    private bool isTimerRunning = true; // control del temporizador
 
     void Start()
     {
@@ -19,12 +19,13 @@ public class CountDownTimer : MonoBehaviour
     {
         if (isTimerRunning)
         {
+            //Funcionament
             timeRemaining -= 1f;
             countdownText.text = timeRemaining > 0 ? timeRemaining.ToString("0") : "";
 
             if (timeRemaining <= 0)
             {
-                gameStarter.StartGame(); // Llamar a la función StartGame() para iniciar el juego
+                gameStarter.StartGame(); 
                 CancelInvoke("UpdateTimer");
                 countdownText.gameObject.SetActive(false);
             }

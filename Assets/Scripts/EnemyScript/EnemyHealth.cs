@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        //Scripts para misiones y texto
         textController = FindObjectOfType<TextController>();
         missionManager = FindObjectOfType<MisionManager>();
     }
@@ -21,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage()
     {
         shotsReceived++;
-
+        //morir Tiros
         if (shotsReceived >= shotsToDie)
         {
             Die();
@@ -30,12 +31,13 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        // contar puntos 
         if (textController != null)
         {
             textController.SumarPuntos(100);
         }
 
-        
+        //contar muerte
         if (missionManager != null && ContributesToMission)
         {
             missionManager.EnemyKilled();

@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public float moveSpeed = 3f;
-    private Transform target; // Transform del objetivo
+    private Transform target; 
 
     void Start()
     {

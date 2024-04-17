@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 movementInput;
-    private bool isGrounded; // Variable para verificar si el jugador está en el suelo
+    private bool isGrounded; 
 
     void Start()
     {
@@ -18,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Verificar si el jugador está en el suelo
+        //identificar suelo
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ground"));
 
-        // Obtener entrada del jugador
+        //movimiento del personaje
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        // Mover al jugador si está en el suelo
+        // Mover al jugador con contacto al suelo
         if (isGrounded)
         {
             rb.MovePosition(rb.position + movementInput * speed * Time.fixedDeltaTime);

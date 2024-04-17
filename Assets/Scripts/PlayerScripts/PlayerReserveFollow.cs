@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerReserveFollow : MonoBehaviour
 {
-    public GameObject player; // Referencia al GameObject del jugador
+    public GameObject player; //Referenci del character1
 
     void Update()
     {
         // Verificar si el jugador está activo
         if (player != null && player.activeSelf)
         {
-            // Mover el GameObject de reserva a la posición del jugador
+            // ajustar el P.reserve a la posicion de jugador
             transform.position = player.transform.position;
         }
     }

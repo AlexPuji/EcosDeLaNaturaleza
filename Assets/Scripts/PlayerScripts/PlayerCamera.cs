@@ -6,7 +6,7 @@ public class PlayerCamera : MonoBehaviour
 {
     public Transform Player;
 
-    private void Awake()
+    private void Awake()// ja no s'utilitza camera en altre script
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 

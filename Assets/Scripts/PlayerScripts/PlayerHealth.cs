@@ -7,9 +7,9 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxLives = 5;
     public int currentLives;
-    public string levelToLoad = "Level2"; // Nombre de la escena que deseas cargar
+    public string levelToLoad = "Level2"; 
 
-    public GameObject playerReserve; // Referencia al GameObject de reserva para el jugador
+    public GameObject playerReserve; //Reserve para hacer que los zombies siguan al jugador
 
     void Start()
     {
@@ -30,10 +30,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false); // Desactivar el GameObject del jugador
-        playerReserve.SetActive(true); // Activar el GameObject de reserva
+        gameObject.SetActive(false); // Muerte
+        playerReserve.SetActive(true); // Activa el Reserve
 
-        // Cargar la escena "Level 2"
+        // Cargar la escena del Mode
         SceneManager.LoadScene(levelToLoad);
     }
 
