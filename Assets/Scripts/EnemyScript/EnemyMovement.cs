@@ -6,32 +6,41 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public float moveSpeed = 3f;
-    private Transform player;
+    private Transform target; // Transform del objetivo
 
-    
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null)
+        if (playerObject != null && playerObject.activeSelf)
         {
-            player = playerObject.transform;
+            target = playerObject.transform;
         }
         else
         {
-            Debug.LogError("No se encontró ningun objeto con el tag Player"); //Quitar
+            GameObject[] playerReserveObjects = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject playerReserveObject in playerReserveObjects)
+            {
+                if (playerReserveObject.activeSelf)
+                {
+                    target = playerReserveObject.transform;
+                    break;
+                }
+            }
+        }
+
+        if (target == null)
+        {
+            Debug.LogError("No se encontró ningún objeto activo con el tag Player");
         }
     }
 
-    
     void Update()
     {
-        if(player != null)
+        if (target != null)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-
+            Vector3 direction = (target.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
         }
-        
     }
 }

@@ -15,10 +15,10 @@ public class MapaGenerator : MonoBehaviour
 
     void GenerateMap()
     {
-        // Crear una textura para almacenar el mapa generado
+        
         Texture2D texture = new Texture2D(width, height);
 
-        // Generar el mapa utilizando el ruido de Perlin
+        
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -31,7 +31,7 @@ public class MapaGenerator : MonoBehaviour
             }
         }
 
-        // Aplicar los cambios y asignar la textura al material de algún objeto en tu escena
+        
         texture.Apply();
         GetComponent<Renderer>().material.mainTexture = texture;
     }

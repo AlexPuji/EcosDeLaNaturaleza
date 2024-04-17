@@ -7,17 +7,17 @@ public class MouseShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
     public AmmoText ammoText;
-    public float shootInterval = 0.5f; // Intervalo de tiempo entre disparos en segundos
-    private float lastShootTime; // Tiempo del último disparo
+    public float shootInterval = 0.5f; 
+    private float lastShootTime; 
 
     void Update()
     {
-        // Verificar si el jugador está manteniendo presionado el botón del ratón y tiene munición
+        
         if (Input.GetMouseButton(0) && ammoText.currentAmmo > 0 && Time.time > lastShootTime + shootInterval)
         {
             Shoot();
             DecreaseAmmo();
-            lastShootTime = Time.time; // Actualizar el tiempo del último disparo
+            lastShootTime = Time.time; 
         }
     }
 

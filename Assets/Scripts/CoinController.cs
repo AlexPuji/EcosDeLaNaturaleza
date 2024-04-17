@@ -8,9 +8,7 @@ public class CoinController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Realiza las acciones necesarias cuando el jugador recolecta la moneda
-
-            // Desactiva la moneda en lugar de destruirla
+            
             gameObject.SetActive(false);
         }
     }

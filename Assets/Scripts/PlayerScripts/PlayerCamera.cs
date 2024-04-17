@@ -6,7 +6,7 @@ public class PlayerCamera : MonoBehaviour
 {
     public Transform Player;
 
-    private void Start()
+    private void Awake()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -18,17 +18,13 @@ public class PlayerCamera : MonoBehaviour
         {
             Debug.LogError("No se encontró un objeto con el tag 'Player'");
         }
-
     }
-    void Update()
+
+    void LateUpdate()
     {
-        if(Player != null)
+        if (Player != null)
         {
-            Vector3 positionPlayer = Player.position;
-
-            positionPlayer.z = transform.position.z;
-
-            transform.position = positionPlayer;
+            transform.position = new Vector3(Player.position.x, Player.position.y, transform.position.z);
         }
     }
 }

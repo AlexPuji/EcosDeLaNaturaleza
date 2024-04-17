@@ -7,49 +7,38 @@ using UnityEngine.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public Tilemap tilemap;
-
     private Rigidbody2D rb;
     private Vector2 movementInput;
-
-    
+    private bool isGrounded; // Variable para verificar si el jugador está en el suelo
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
     }
 
     void Update()
     {
-        
+        // Verificar si el jugador está en el suelo
+        isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ground"));
+
+        // Obtener entrada del jugador
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        movementInput = new Vector2(moveHorizontal, moveVertical);
+        movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
     }
 
     void FixedUpdate()
     {
-        
         MovePlayer();
     }
 
     void MovePlayer()
     {
-        
-        movementInput.Normalize();
-
-        Vector2 newPosition = rb.position + movementInput * speed * Time.fixedDeltaTime;
-
-        
-        if (tilemap.HasTile(tilemap.WorldToCell(newPosition)))
+        // Mover al jugador si está en el suelo
+        if (isGrounded)
         {
-            
-            rb.MovePosition(newPosition);
+            rb.MovePosition(rb.position + movementInput * speed * Time.fixedDeltaTime);
         }
-
     }
-    
-    
 }
 

@@ -5,9 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class BootsSpawner : MonoBehaviour
 {
-    public GameObject bootPrefab; // Prefab de la bota
-    public int numberOfBoots = 10; // Número de botas a spawnear
-    public Tilemap tilemap; // Referencia al Tilemap donde se generarán las botas
+    public GameObject bootPrefab;
+    public int numberOfBoots = 10;
+    public Vector2 spawnArea = new Vector2(20f, 10f);
 
     void Start()
     {
@@ -16,10 +16,7 @@ public class BootsSpawner : MonoBehaviour
 
     void SpawnBoots()
     {
-        BoundsInt bounds = tilemap.cellBounds;
-        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
-
-        int maxAttempts = 100; // Límite de intentos para evitar bucle infinito
+        int maxAttempts = 100;
 
         for (int i = 0; i < numberOfBoots; i++)
         {
@@ -27,17 +24,12 @@ public class BootsSpawner : MonoBehaviour
 
             while (attempts < maxAttempts)
             {
-                Vector3Int randomPosition = new Vector3Int(
-                    Random.Range(bounds.xMin, bounds.xMax),
-                    Random.Range(bounds.yMin, bounds.yMax),
-                    bounds.z);
+                Vector3 randomPosition = new Vector3(Random.Range(-spawnArea.x / 2f, spawnArea.x / 2f), Random.Range(-spawnArea.y / 2f, spawnArea.y / 2f), 0f);
 
-                // Verificar si la posición aleatoria está sobre un tile
-                if (IsTileWalkable(randomPosition, bounds, allTiles))
+                if (IsPositionValid(randomPosition))
                 {
-                    Vector3 spawnPosition = tilemap.GetCellCenterWorld(randomPosition);
-                    Instantiate(bootPrefab, spawnPosition, Quaternion.identity);
-                    break; // Salir del bucle while si se encuentra una posición válida
+                    Instantiate(bootPrefab, randomPosition, Quaternion.identity);
+                    break;
                 }
                 else
                 {
@@ -45,27 +37,19 @@ public class BootsSpawner : MonoBehaviour
                 }
             }
 
-            // Verificar si se superó el límite de intentos
             if (attempts >= maxAttempts)
             {
-                Debug.LogWarning("No se pudo encontrar una posición válida para la bota " + (i + 1) + ". Ajusta el área del tilemap o reduce el número de botas.");
-                break; // Salir del bucle for
+                Debug.LogWarning("No se pudo encontrar una posición válida para la bota " + (i + 1) + ". Ajusta el área de spawn o reduce el número de botas.");
+                break;
             }
         }
     }
 
-    bool IsTileWalkable(Vector3Int position, BoundsInt bounds, TileBase[] tiles)
+    bool IsPositionValid(Vector3 position)
     {
-        if (bounds.Contains(position))
-        {
-            TileBase tile = tiles[position.x - bounds.xMin + (position.y - bounds.yMin) * bounds.size.x];
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 1f);
 
-            // Si el tile es nulo o no es transitable, devuelve false
-            return (tile != null);
-        }
-        else
-        {
-            return false;
-        }
+        // Verifica si hay colisión con algún otro objeto en un radio de 1 unidad
+        return colliders.Length == 0;
     }
 }

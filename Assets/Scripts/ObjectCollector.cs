@@ -15,12 +15,12 @@ public class ObjectCollector : MonoBehaviour
     {
         if (other.CompareTag("AmmoBox"))
         {
-            // Recolectar la caja de munición y realizar las acciones necesarias
+            
             Debug.Log("¡Caja de munición recolectada!");
-            ammoBoxSpawner.DecreaseNumberOfBoxes(); // Disminuir el número de cajas de munición
-            Destroy(other.gameObject); // Destruir la caja de munición después de recolectarla
-            ammoBoxSpawner.SpawnAmmoBoxes(); // Llamar a la función para spawnear nuevas cajas de munición
-            // Agregar lógica para aumentar la munición, etc.
+            ammoBoxSpawner.DecreaseNumberOfBoxes(); 
+            Destroy(other.gameObject); 
+            ammoBoxSpawner.SpawnAmmoBoxes(); 
+            
         }
     }
 }
