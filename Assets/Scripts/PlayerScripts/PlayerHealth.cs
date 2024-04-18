@@ -7,9 +7,10 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxLives = 5;
     public int currentLives;
-    public string levelToLoad = "Level2"; 
+    public GameObject playerReserve;
 
-    public GameObject playerReserve; //Reserve para hacer que los zombies siguan al jugador
+    public delegate void PlayerDeathAction();
+    public static event PlayerDeathAction OnPlayerDeath;
 
     void Start()
     {
@@ -30,11 +31,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false); // Muerte
-        playerReserve.SetActive(true); // Activa el Reserve
+        Debug.Log("El jugador ha muerto.");
+        gameObject.SetActive(false);
+        playerReserve.SetActive(true);
 
-        // Cargar la escena del Mode
-        SceneManager.LoadScene(levelToLoad);
+        // Avis al Game Manager (No sabia el que era Invoke, he volgut probar, Fins ara sol feia destroy....)
+        OnPlayerDeath?.Invoke();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

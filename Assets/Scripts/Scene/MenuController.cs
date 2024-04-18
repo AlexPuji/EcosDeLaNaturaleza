@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
             Debug.LogError("No se encontró un objeto SceneLoader en la escena.");//Revisar si salta debug
         }
 
-        playButton.onClick.AddListener(LoadNextScene);
+        playButton.onClick.AddListener(LoadNextScene);//Em donava  error el click
     }
 
     private void LoadNextScene()

@@ -26,7 +26,7 @@ public class MisionManager : MonoBehaviour
 
         if (selectModeController == null || textController == null)
         {
-            Debug.LogError("No se encontró el SelectModeController o el TextController en la escena.");
+            
             return; 
         }
 
@@ -70,7 +70,11 @@ public class MisionManager : MonoBehaviour
     
     public void EnemyKilled()
     {
-        
+        if (selectModeController == null)
+        {
+            Debug.LogWarning("SelectModeController not found.");
+            return;
+        }
         string difficulty = selectModeController.GetSelectedDifficulty();
 
         //Dificultades
