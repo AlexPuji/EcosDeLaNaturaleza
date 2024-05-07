@@ -4,42 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxLife = 100f;
-    public float currentLife;
+    public int maxHealth = 5;
+    private int currentHealth;
 
-    public LifeBar lifeBar;
-
-    void Start()
+    private void Start()
     {
-        currentLife = maxLife;
-        lifeBar.SetMaxLife(maxLife);
+        currentHealth = maxHealth;
     }
 
-    void Update()
+    public void TakeDamage(int damageAmount)
     {
-        // Aquí iría la lógica para reducir la vida del jugador cuando recibe daño, por ejemplo.
-        // Después de actualizar la vida del jugador, actualiza también la barra de vida.
-        lifeBar.SetLife(currentLife);
-    }
-    public void TakeDamage(float amount)
-    {
-        currentLife -= amount;
-        // Actualizar la barra de vida
-        lifeBar.SetLife(currentLife);
+        currentHealth -= damageAmount;
+        Debug.Log("Player takes " + damageAmount + " damage. Current health: " + currentHealth);
 
-        // Verificar si el jugador ha muerto
-        if (currentLife <= 0)
+        if (currentHealth <= 0)
         {
-            // Realizar acciones adicionales cuando el jugador muere, como reiniciar el nivel o mostrar un menú de juego
-            // Por ejemplo:
             Die();
         }
     }
-    public void Die()
+
+    private void Die()
     {
-        // Aquí puedes implementar acciones adicionales cuando el jugador muere,
-        // como reiniciar el nivel o mostrar un menú de juego.
-        // Por ejemplo, puedes cargar una escena de Game Over:
-        // SceneManager.LoadScene("GameOverScene");
+        Debug.Log("Player has died.");
+        // Aquí podrías agregar código para reiniciar el nivel o mostrar un mensaje de game over.
     }
 }

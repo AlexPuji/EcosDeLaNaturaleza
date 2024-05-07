@@ -4,46 +4,28 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    public float detectionDistance = 5f; // The distance at which the enemy will detect the player
-    public float movementSpeed = 3f; // The speed at which the enemy will move towards the player
-    private Transform player; // Reference to the player's transform
-    private Rigidbody2D rb; // Reference to the enemy's Rigidbody2D component
+    public float detectionDistance = 5f; // La distancia a la que el enemigo detectará al jugador
+    public float movementSpeed = 3f; // La velocidad a la que el enemigo se moverá hacia el jugador
+    private Transform player; // Referencia al transform del jugador
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Finding the player by their tag
-        rb = GetComponent<Rigidbody2D>(); // Getting the Rigidbody2D component
-        rb.freezeRotation = true; // Freezing the rotation of the enemy
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Encontrar el jugador por su etiqueta
     }
 
     void Update()
     {
-        // Calculating the distance between the enemy and the player
+        // Calculando la distancia entre el enemigo y el jugador
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // If the player is within the detection distance
+        // Si el jugador está dentro de la distancia de detección
         if (distanceToPlayer < detectionDistance)
         {
-            // Calculating the direction towards which the enemy should move
+            // Calculando la dirección hacia la cual el enemigo debería moverse
             Vector2 direction = (player.position - transform.position).normalized;
 
-            // Moving the enemy towards the player
-            rb.velocity = direction * movementSpeed;
-        }
-        else
-        {
-            // Stop the enemy if the player is not within the detection distance
-            rb.velocity = Vector2.zero;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // If the collided object is the player
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Ignore collision with the player, so the enemy won't be affected by it
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            // Moviendo el enemigo hacia el jugador con la velocidad actualizada
+            transform.Translate(direction * movementSpeed * Time.deltaTime);
         }
     }
 }
