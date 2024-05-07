@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 movementInput;
-    private bool isGrounded; 
+    private bool isGrounded;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -25,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
+        
+        if (movementInput.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (movementInput.x > 0)
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
     }
 
     void FixedUpdate()

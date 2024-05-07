@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 20f;
+    public float bulletSpeed = 30f;
     public AmmoText ammoText;
     public float shootInterval = 0.5f; 
     private float lastShootTime; 
@@ -26,8 +26,13 @@ public class MouseShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - transform.position).normalized;
+
+        Vector2 velocity = direction * bulletSpeed;
+
+
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = direction * bulletSpeed;
+        rb.velocity = velocity;
+
         StartCoroutine(DestroyBulletAfterTime(bullet));
     }
 
