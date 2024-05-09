@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DoorInteraction : MonoBehaviour
+public class ReturnToWorld : MonoBehaviour
 {
     public Text messageText; // Referencia al componente Text del mensaje
 
@@ -32,7 +32,7 @@ public class DoorInteraction : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             // Carga la escena del nivel principal
-            SceneManager.LoadScene("House1CM");
+            SceneManager.LoadScene("Level 1 CM");
         }
     }
 

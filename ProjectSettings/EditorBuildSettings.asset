@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LevelCompleted.unity
     guid: b7386e7e45271a34b9fb264aee99e63f
+  - enabled: 1
+    path: Assets/Scenes/Level 1 CM.unity
+    guid: 826b2763b5abfa34aa9aa6766834586c
+  - enabled: 1
+    path: Assets/Scenes/CMScenesHouses/House1CM.unity
+    guid: cdb6051091368204cb97a1f3de7b0592
   m_configObjects: {}

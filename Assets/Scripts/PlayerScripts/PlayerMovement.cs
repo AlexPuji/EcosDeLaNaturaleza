@@ -10,30 +10,41 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movementInput;
     private bool isGrounded;
-    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //identificar suelo
+        // Identificar el suelo
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ground"));
 
-        //movimiento del personaje
+        // Movimiento del personaje
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
-        
+
+        if (movementInput.x != 0 || movementInput.y != 0)
+        {
+            animator.SetBool("IsRunning", true);
+            animator.SetFloat("Speed", movementInput.magnitude);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+        }
+
         if (movementInput.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (movementInput.x > 0)
         {
-            transform.localScale = new Vector3(1,1,1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 

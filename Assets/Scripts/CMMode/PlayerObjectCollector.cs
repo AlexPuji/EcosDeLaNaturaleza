@@ -18,6 +18,6 @@ public class PlayerObjectCollector : MonoBehaviour
     // Método para actualizar el texto del contador de objetos
     private void UpdateObjectCountText()
     {
-        objectCountText.text = "x " + objectCount.ToString(); // Actualiza el texto con la cantidad de objetos recolectados
+        objectCountText.text = "x " + objectCount.ToString(); 
     }
 }

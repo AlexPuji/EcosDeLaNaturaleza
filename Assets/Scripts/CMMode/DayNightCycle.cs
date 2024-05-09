@@ -11,7 +11,8 @@ public class DayNightCycle : MonoBehaviour
     public Image dayNightIcon;
     public Sprite daySprite;
     public Sprite nightSprite;
-    public GameObject nightWarningMessage; // Mensaje de advertencia para la noche
+    public GameObject nightWarningMessage;
+    public GameObject nightOverlay; 
 
     private static bool isNight = false; // Variable estática para indicar si es de noche
 
@@ -35,13 +36,15 @@ public class DayNightCycle : MonoBehaviour
             // Es de día
             dayNightIcon.sprite = daySprite; // Asigna el sprite del sol
             nightWarningMessage.SetActive(false); // Desactiva el mensaje de advertencia
+            nightOverlay.SetActive(false);
             isNight = false;
         }
         else
         {
             // Es de noche
             dayNightIcon.sprite = nightSprite; // Asigna el sprite de la luna
-            nightWarningMessage.SetActive(true); // Activa el mensaje de advertencia
+            nightWarningMessage.SetActive(true);
+            nightOverlay.SetActive(true);
             isNight = true;
         }
     }
