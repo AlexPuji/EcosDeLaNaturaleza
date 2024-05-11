@@ -1652,7 +1652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02216709, y: 0.014}
   m_AnchorMax: {x: 0.078, y: 0.07350316}
-  m_AnchoredPosition: {x: -0.39998627, y: -0.29995728}
+  m_AnchoredPosition: {x: -0.399971, y: -0.29995728}
   m_SizeDelta: {x: 1.3452988, y: 0.34530067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859953187
@@ -1853,7 +1853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02216709, y: 0.35746035}
   m_AnchorMax: {x: 0.26285487, y: 0.6255655}
-  m_AnchoredPosition: {x: -0.8655472, y: -0.2940979}
+  m_AnchoredPosition: {x: -0.8655319, y: -0.2940979}
   m_SizeDelta: {x: -1.7312012, y: -5.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916595224
@@ -4450,7 +4450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02216709, y: 0.10353373}
   m_AnchorMax: {x: 0.26285487, y: 0.35746035}
-  m_AnchoredPosition: {x: -0.3655777, y: -1.044075}
+  m_AnchoredPosition: {x: -0.36556244, y: -1.044075}
   m_SizeDelta: {x: -2.7312012, y: -1.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553358436
@@ -5386,7 +5386,6 @@ GameObject:
   - component: {fileID: 1860193645}
   - component: {fileID: 1860193638}
   - component: {fileID: 1860193637}
-  - component: {fileID: 1860193646}
   m_Layer: 6
   m_Name: PJ Agent
   m_TagString: Player
@@ -5605,7 +5604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcbd87127cddb04e8af49a9d5c44335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 100
 --- !u!114 &1860193644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5632,51 +5631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbc0d192273fa8439c2b2c2e9bb3035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1860193646
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860193633}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.011303026, y: -0.103865266}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2597172, y: 0.7365637}
-  m_EdgeRadius: 0
 --- !u!1 &1925598043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6264,6 +6218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieBoy
       objectReference: {fileID: 0}
+    - target: {fileID: 2711866850257563304, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3033295332577312071, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.19
@@ -6303,6 +6261,10 @@ PrefabInstance:
     - target: {fileID: 3033295332577312071, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132316136013956206, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
+      propertyPath: criticalChance
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

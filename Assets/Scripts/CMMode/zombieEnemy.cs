@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class zombieEnemy : MonoBehaviour
 {
-    public int maxHits = 4; // Número máximo de toques necesarios para morir
-    private int currentHits = 0; // Número actual de toques recibidos
+    public int maxHealth = 50; // Vida máxima del enemigo
+    private int currentHealth; // Vida actual del enemigo
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        // Si el objeto que colisiona es un ataque melee del jugador
-        if (other.CompareTag("MeleeAttack"))
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        Debug.Log("Zombie takes " + damageAmount + " damage. Current health: " + currentHealth);
+
+        if (currentHealth <= 0)
         {
-            // Incrementar el contador de toques
-            currentHits++;
-
-            // Destruir el ataque melee
-            Destroy(other.gameObject);
-
-            // Verificar si el zombie ha recibido suficientes toques para morir
-            if (currentHits >= maxHits)
-            {
-                // Si el zombie ha recibido suficientes toques, destruirlo
-                Destroy(gameObject);
-            }
+            Die();
         }
     }
-   
+
+    private void Die()
+    {
+        Debug.Log("Zombie has died.");
+        Destroy(gameObject); // Destruir el enemigo
+    }
+
 }

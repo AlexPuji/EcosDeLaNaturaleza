@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxHealth = 5;
-    private int currentHealth;
-    private static PlayerController instance;
+    public float maxHealth = 100f;
+    private float currentHealth;
 
     private float moveSpeed = 5f; // Velocidad de movimiento del jugador
+
+    private static PlayerController instance;
 
     private void Awake()
     {
@@ -31,10 +32,10 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
-        Debug.Log("Player takes " + damageAmount + " damage. Current health: " + currentHealth);
+        Debug.Log("Player takes damage. Current health: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -45,7 +46,8 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died.");
-        // Aquí podrías agregar código para reiniciar el nivel o mostrar un mensaje de game over.
+        gameObject.SetActive(false);
+        // Aquí puedes agregar código para reiniciar el nivel o mostrar un mensaje de game over.
     }
 
     private void Update()

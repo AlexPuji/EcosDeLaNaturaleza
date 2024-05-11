@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5992426674540123512}
   - component: {fileID: 8630117718313298155}
   - component: {fileID: 2711866850257563304}
+  - component: {fileID: 2771795427144987238}
   m_Layer: 0
   m_Name: ZombieBoy
   m_TagString: Enemy
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5a20d3a7078e745965ef7d52413aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHits: 4
+  maxHealth: 50
 --- !u!114 &2832014004344041513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82934b152fde6d449ad0a105d30f915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
 --- !u!61 &2711866850257563304
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -298,3 +298,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59431994, y: 1.041954}
   m_EdgeRadius: 0
+--- !u!114 &2771795427144987238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793438953622228426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea88fa581e40dd46bee89427621ba39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
