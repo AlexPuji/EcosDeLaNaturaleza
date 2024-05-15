@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ZombieNigthBuff : MonoBehaviour
 {
-    public float nightSpeedBoost = 1f; // Aumento de velocidad durante la noche
+    public float nightSpeedBoost = 1f; //buff de nit
 
-    private float originalSpeed; // Velocidad original del zombie
-    private EnemyDetection enemyDetection; // Referencia al script EnemyDetection
+    private float originalSpeed; 
+    private EnemyDetection enemyDetection; 
 
     void Start()
     {
-        enemyDetection = GetComponent<EnemyDetection>(); // Obtener referencia al script EnemyDetection
-        originalSpeed = enemyDetection.movementSpeed; // Guardar la velocidad original del zombie
+        enemyDetection = GetComponent<EnemyDetection>(); 
+        originalSpeed = enemyDetection.movementSpeed; 
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class ZombieNigthBuff : MonoBehaviour
 
     void ApplyNightBuff()
     {
-        // Aumentar la velocidad del zombie durante la noche
+        //augment de velocitat
         enemyDetection.movementSpeed = originalSpeed + nightSpeedBoost;
     }
 }

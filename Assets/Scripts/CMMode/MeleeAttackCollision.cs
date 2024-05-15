@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MeleeAttackCollision : MonoBehaviour
 {
-    public int damageAmount = 7; // Cantidad de daño infligido por la colisión
+    public int damageAmount = 7; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Colisionó con un enemigo, así que le quitamos vida al enemigo
-            collision.gameObject.GetComponent<zombieEnemy>().TakeDamage(damageAmount);
-            // También destruimos la bala
-            Destroy(gameObject);
+            
+            collision.gameObject.GetComponent<zombieEnemy>().TakeDamage(damageAmount);//en collisionar amb el Enemy
+            
+            Destroy(gameObject);//error en la destruccio no deixa acabar la animacio
         }
     }
 

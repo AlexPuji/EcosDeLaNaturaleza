@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public float cycleDuration = 120f; // Duración completa de un ciclo día-noche en segundos
+    public float cycleDuration = 120f; //durada del cicle 
     private float currentTime = 0f;
     public Text timerText;
     public Image dayNightIcon;
@@ -14,35 +14,35 @@ public class DayNightCycle : MonoBehaviour
     public GameObject nightWarningMessage;
     public GameObject nightOverlay; 
 
-    private static bool isNight = false; // Variable estática para indicar si es de noche
+    private static bool isNight = false; 
 
     void Update()
     {
         currentTime += Time.deltaTime;
         if (currentTime >= cycleDuration)
         {
-            currentTime = 0f; // Reinicia el tiempo al llegar al final del ciclo
+            currentTime = 0f; //reinicio del temps
         }
 
-        // Actualiza el texto del timer
+        
         float currentHour = (currentTime / cycleDuration) * 24f;
         int hour = Mathf.FloorToInt(currentHour);
         int minute = Mathf.FloorToInt((currentHour - hour) * 60f);
         timerText.text = string.Format("{0:00}:{1:00}", hour, minute);
 
-        // Actualiza el icono de día/noche
+        //iconos dia y noche 
         if (currentHour >= 7 && currentHour < 21)
         {
-            // Es de día
-            dayNightIcon.sprite = daySprite; // Asigna el sprite del sol
-            nightWarningMessage.SetActive(false); // Desactiva el mensaje de advertencia
+            
+            dayNightIcon.sprite = daySprite; 
+            nightWarningMessage.SetActive(false); 
             nightOverlay.SetActive(false);
             isNight = false;
         }
         else
         {
-            // Es de noche
-            dayNightIcon.sprite = nightSprite; // Asigna el sprite de la luna
+            
+            dayNightIcon.sprite = nightSprite; 
             nightWarningMessage.SetActive(true);
             nightOverlay.SetActive(true);
             isNight = true;

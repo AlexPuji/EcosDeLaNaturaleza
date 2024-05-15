@@ -6,7 +6,7 @@ public class PersistentCharacter : MonoBehaviour
 {
     private void Awake()
     {
-        // Marca este objeto como persistente
+        // mante al jugador com viu
         DontDestroyOnLoad(gameObject);
     }
 }

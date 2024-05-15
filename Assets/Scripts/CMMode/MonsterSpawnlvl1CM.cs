@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MonsterSpawnlvl1CM : MonoBehaviour
 {
-    public GameObject monsterPrefab; // Prefab del monstruo que quieres instanciar
-    public int numberOfMonsters = 50; // Número de monstruos que quieres instanciar
-    public GameObject[] groundObjects; // Array de objetos que actúan como suelo
+    public GameObject monsterPrefab; 
+    public int numberOfMonsters = 50; 
+    public GameObject[] groundObjects; 
 
     void Start()
     {
@@ -20,10 +20,10 @@ public class MonsterSpawnlvl1CM : MonoBehaviour
             Collider2D groundCollider = groundObject.GetComponent<Collider2D>();
             if (groundCollider != null)
             {
-                // Obtener el área del objeto de suelo
+                //Area pr respawn del terra 
                 Bounds bounds = groundCollider.bounds;
 
-                // Instanciar los monstruos dentro del área del objeto de suelo
+                
                 for (int i = 0; i < numberOfMonsters; i++)
                 {
                     Vector2 spawnPoint = new Vector2(

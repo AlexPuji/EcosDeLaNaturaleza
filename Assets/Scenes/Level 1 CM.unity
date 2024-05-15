@@ -6218,10 +6218,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieBoy
       objectReference: {fileID: 0}
-    - target: {fileID: 2711866850257563304, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3033295332577312071, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.19
@@ -6261,10 +6257,6 @@ PrefabInstance:
     - target: {fileID: 3033295332577312071, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132316136013956206, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
-      propertyPath: criticalChance
-      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
