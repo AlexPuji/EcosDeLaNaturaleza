@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //identic al de Frenetic Mode
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 movementInput;
@@ -20,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Identificar el suelo
+        
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ground"));
 
-        // Movimiento del personaje
+        
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        // Mover al jugador con contacto al suelo
+       
         if (isGrounded)
         {
             rb.MovePosition(rb.position + movementInput * speed * Time.fixedDeltaTime);

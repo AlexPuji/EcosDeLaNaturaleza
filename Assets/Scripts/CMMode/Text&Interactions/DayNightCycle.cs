@@ -21,7 +21,7 @@ public class DayNightCycle : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= cycleDuration)
         {
-            currentTime = 0f; //reinicio del temps
+            currentTime = 0f; //reinicí del temps
         }
 
         
@@ -30,7 +30,7 @@ public class DayNightCycle : MonoBehaviour
         int minute = Mathf.FloorToInt((currentHour - hour) * 60f);
         timerText.text = string.Format("{0:00}:{1:00}", hour, minute);
 
-        //iconos dia y noche 
+        //iconos dia i nit 
         if (currentHour >= 7 && currentHour < 21)
         {
             

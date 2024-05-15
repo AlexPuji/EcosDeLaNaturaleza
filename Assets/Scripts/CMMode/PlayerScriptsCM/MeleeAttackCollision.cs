@@ -12,8 +12,9 @@ public class MeleeAttackCollision : MonoBehaviour
         {
             
             collision.gameObject.GetComponent<zombieEnemy>().TakeDamage(damageAmount);//en collisionar amb el Enemy
-            
-            Destroy(gameObject);//error en la destruccio no deixa acabar la animacio
+            //Desactivar collider
+            //Destruir en un temps 
+           // Destroy(gameObject);//error en la destruccio no deixa acabar la animacio
         }
     }
 
