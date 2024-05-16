@@ -15,18 +15,26 @@ public class LockedDoorInteraction : MonoBehaviour
         // Verifica si el jugador está dentro del rango de interacción y muestra el mensaje
         if (playerInRange)
         {
-            if (isLocked)
+            // Verifica si el objeto de texto aún existe antes de intentar acceder a él
+            if (messageText != null)
             {
-                messageText.SetActive(true); // Muestra el mensaje en pantalla
-            }
-            else
-            {
-                Debug.Log("Presiona 'E' para entrar."); // Muestra el mensaje en la consola
+                if (isLocked)
+                {
+                    messageText.SetActive(true); // Muestra el mensaje en pantalla
+                }
+                else
+                {
+                    Debug.Log("Presiona 'E' para entrar."); // Muestra el mensaje en la consola
+                }
             }
         }
         else
         {
-            messageText.SetActive(false); // Oculta el mensaje cuando el jugador está fuera del rango
+            // Verifica si el objeto de texto aún existe antes de intentar acceder a él
+            if (messageText != null)
+            {
+                messageText.SetActive(false); // Oculta el mensaje cuando el jugador está fuera del rango
+            }
         }
 
         // Verifica si el jugador presiona la tecla para interactuar

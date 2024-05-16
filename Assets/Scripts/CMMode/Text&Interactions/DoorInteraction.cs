@@ -13,17 +13,20 @@ public class DoorInteraction : MonoBehaviour
     private void Start()
     {
         // Asegúrate de que el mensaje esté desactivado al inicio
-        messageText.gameObject.SetActive(false);
+        if (messageText != null)
+        {
+            messageText.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
         // Verifica si el jugador está dentro del rango de interacción y muestra el mensaje
-        if (playerInRange)
+        if (playerInRange && messageText != null)
         {
             messageText.gameObject.SetActive(true);
         }
-        else
+        else if (messageText != null)
         {
             messageText.gameObject.SetActive(false);
         }

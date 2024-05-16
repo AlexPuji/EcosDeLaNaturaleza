@@ -21,20 +21,26 @@ public class CoinDispenser : MonoBehaviour
             // Muestra el mensaje "Press 'E'" si quedan interacciones disponibles
             if (interactionsRemaining > 0)
             {
-                pressEText.SetActive(true);
-                emptyText.SetActive(false);
+                if (pressEText != null)
+                    pressEText.SetActive(true);
+                if (emptyText != null)
+                    emptyText.SetActive(false);
             }
             else
             {
                 // Si no quedan interacciones disponibles, muestra el mensaje "Empty"
-                pressEText.SetActive(false);
-                emptyText.SetActive(true);
+                if (pressEText != null)
+                    pressEText.SetActive(false);
+                if (emptyText != null)
+                    emptyText.SetActive(true);
             }
         }
         else
         {
-            pressEText.SetActive(false);
-            emptyText.SetActive(false);
+            if (pressEText != null)
+                pressEText.SetActive(false);
+            if (emptyText != null)
+                emptyText.SetActive(false);
         }
 
         // Verifica si el jugador presiona la tecla para interactuar y si quedan interacciones disponibles
