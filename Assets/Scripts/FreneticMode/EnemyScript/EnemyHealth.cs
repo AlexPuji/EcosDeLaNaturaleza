@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
         //contar muerte
         if (missionManager != null && ContributesToMission)
         {
-            missionManager.EnemyKilled();
+            //missionManager.EnemyKilled();
         }
 
         Destroy(gameObject);

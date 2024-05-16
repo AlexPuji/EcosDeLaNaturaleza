@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-using static MisionManager;
+
 
 public class SelectModeController : MonoBehaviour
 {
-    public Button easyButton;
-    public Button normalButton;
-    public Button hardButton;
+    public Button CMButton;
+    public Button FMButton;
 
+    public string level1CMScene = "Level1CM";
     public string level1Scene = "Level1";
 
-    private string selectedDifficulty;
     private static SelectModeController instance;
 
     private void Awake()
@@ -31,24 +30,17 @@ public class SelectModeController : MonoBehaviour
 
     private void Start()
     {
-        easyButton.onClick.AddListener(() => SelectDifficulty("easy"));
-        normalButton.onClick.AddListener(() => SelectDifficulty("normal"));
-        hardButton.onClick.AddListener(() => SelectDifficulty("hard"));
+        CMButton.onClick.AddListener(LoadLevel1CM);
+        FMButton.onClick.AddListener(LoadLevel1);
     }
 
-    private void SelectDifficulty(string difficulty)
+    private void LoadLevel1CM()
     {
-        selectedDifficulty = difficulty;
-        LoadLevel(level1Scene);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(level1CMScene);
     }
 
-    private void LoadLevel(string levelScene)
+    private void LoadLevel1()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelScene);
-    }
-
-    public string GetSelectedDifficulty()
-    {
-        return selectedDifficulty;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(level1Scene);
     }
 }
