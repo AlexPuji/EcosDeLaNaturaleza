@@ -10,7 +10,7 @@ public class SelectModeController : MonoBehaviour
     public Button CMButton;
     public Button FMButton;
 
-    public string level1CMScene = "Level1CM";
+    public string level1CMScene = "LoadingScene";
     public string level1Scene = "Level1";
 
     private static SelectModeController instance;

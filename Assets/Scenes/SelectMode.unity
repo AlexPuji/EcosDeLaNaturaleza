@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CMButton: {fileID: 1317146}
   FMButton: {fileID: 301701593}
-  level1CMScene: Level 1 CM
+  level1CMScene: LoadingScene
   level1Scene: Level 1
 --- !u!1 &1863151174
 GameObject:
