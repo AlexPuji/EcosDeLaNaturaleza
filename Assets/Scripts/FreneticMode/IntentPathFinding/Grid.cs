@@ -5,9 +5,11 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public LayerMask unwalkableMask;
-    public Vector2 gridWorldSize;
-    public float nodeRadius;
+    public Vector2 gridWorldSize = new Vector2(20, 20); // Tamaño del grid en unidades del mundo
+    public float nodeRadius = 0.5f; // Radio de cada nodo
     public Node[,] grid;
+    public delegate void GridInitializedAction();
+    public event GridInitializedAction OnGridInitialized;
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
@@ -29,9 +31,19 @@ public class Grid : MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
-                bool walkable = !(Physics2D.OverlapCircle(worldPoint, nodeRadius, unwalkableMask));
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+                bool walkable = !Physics2D.OverlapCircle(worldPoint, nodeRadius, unwalkableMask);
+                grid[x, y] = new GameObject("Node_" + x + "_" + y).AddComponent<Node>(); // Crear instancia de Node sin argumentos
+                grid[x, y].walkable = walkable;
+                grid[x, y].worldPosition = worldPoint;
+                grid[x, y].gridX = x;
+                grid[x, y].gridY = y;
             }
+        }
+
+        // Llama al evento de grid inicializado
+        if (OnGridInitialized != null)
+        {
+            OnGridInitialized();
         }
     }
 
@@ -46,7 +58,6 @@ public class Grid : MonoBehaviour
 
                 int checkX = node.gridX + x;
                 int checkY = node.gridY + y;
-
 
                 if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
@@ -81,5 +92,4 @@ public class Grid : MonoBehaviour
             }
         }
     }
-
 }

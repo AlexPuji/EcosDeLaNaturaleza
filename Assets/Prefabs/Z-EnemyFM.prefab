@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotsToDie: 2
   textController: {fileID: 0}
-  missionManager: {fileID: 0}
+  killZombiesMission: {fileID: 0}
   ContributesToMission: 0
 --- !u!114 &7888739101846448967
 MonoBehaviour:
