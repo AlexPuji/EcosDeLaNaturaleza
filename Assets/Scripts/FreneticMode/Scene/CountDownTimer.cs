@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour
 {
     public Text countdownText;
-    public float timeRemaining = 5f;
+    public float timeRemaining = 3f;
     public GameStarter gameStarter; // Referencia GameStarter Script
     private bool isTimerRunning = true; // control del temporizador
 

@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementFM : MonoBehaviour
 {
-    //identic al de Frenetic Mode
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 movementInput;
@@ -21,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ground"));
 
-        
+
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         movementInput = new Vector2(moveHorizontal, moveVertical).normalized;
@@ -56,11 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-       
+
         if (isGrounded)
         {
             rb.MovePosition(rb.position + movementInput * speed * Time.fixedDeltaTime);
         }
     }
 }
-

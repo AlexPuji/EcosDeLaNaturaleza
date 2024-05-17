@@ -8,6 +8,6 @@ public class MissionBoots : MonoBehaviour
     public Text bootText; 
     public void UpdateBootText(int collected, int total)
     {
-        bootText.text = "Remaining Boots: " + collected + "/" + total;
+        //bootText.text = "Remaining Boots: " + collected + "/" + total;
     }
 }

@@ -7,22 +7,21 @@ public class EnemyHealth : MonoBehaviour
     public int shotsToDie = 3;
     private int shotsReceived = 0;
     public TextController textController;
-    public MisionManager missionManager;
+    public KillZombiesMission killZombiesMission; 
 
-    
     public bool ContributesToMission = true;
 
     void Start()
     {
-        //Scripts para misiones y texto
+        // Scripts para misiones y texto
         textController = FindObjectOfType<TextController>();
-        missionManager = FindObjectOfType<MisionManager>();
+        killZombiesMission = FindObjectOfType<KillZombiesMission>(); 
     }
 
     public void TakeDamage()
     {
         shotsReceived++;
-        //morir Tiros
+        // Morir por Tiros
         if (shotsReceived >= shotsToDie)
         {
             Die();
@@ -31,16 +30,16 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        // contar puntos 
+        // Contar puntos 
         if (textController != null)
         {
             textController.SumarPuntos(100);
         }
 
-        //contar muerte
-        if (missionManager != null && ContributesToMission)
+        // Contar muerte en la misión
+        if (killZombiesMission != null && ContributesToMission)
         {
-            //missionManager.EnemyKilled();
+            //killZombiesMission.EnemyKilled();
         }
 
         Destroy(gameObject);
