@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     public Slider slider;
-    public float loadingTime = 20f; // Loading time in seconds
+    public float loadingTime = 15f; // Loading time in seconds
     public string targetLevelName = "Level 1 CM"; // Name of the level you want to load
     public GameObject pressAnyButtonMessage; // Reference to the "Press any button" message GameObject
 

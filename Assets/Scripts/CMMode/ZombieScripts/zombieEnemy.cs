@@ -3,43 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class zombieEnemy : MonoBehaviour
+public class ZombieEnemy : MonoBehaviour
 {
-    public int maxHealth = 50; // Vida máxima del enemigo
-    private int currentHealth; // Vida actual del enemigo
+    public int maxHealth = 50; 
+    private int currentHealth; 
 
-    // Referencia al Slider de la barra de vida del zombie (estará disponible en el inspector)
+    
     public Slider healthSlider;
+    public GameObject healthSliderGameObject; 
 
     private void Start()
     {
         currentHealth = maxHealth;
-        // Configura el valor máximo del slider
+
+        
+        healthSliderGameObject.SetActive(false);
+
+        
         healthSlider.maxValue = maxHealth;
-        // Actualiza el valor del slider con la vida actual del zombie
+        
         healthSlider.value = currentHealth;
     }
 
-    // Método para que el zombie reciba daño
+    //funcio per el dmg del pj al zombie
     public void TakeDamage(int damageAmount)
     {
+        
+        if (!healthSliderGameObject.activeSelf)
+        {
+            healthSliderGameObject.SetActive(true);
+        }
+
         currentHealth -= damageAmount;
         Debug.Log("Zombie takes " + damageAmount + " damage. Current health: " + currentHealth);
 
-        // Actualiza el valor del slider con la vida actual del zombie
+        
         healthSlider.value = currentHealth;
 
-        // Verifica si el zombie ha perdido toda su vida y muere
+        
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    // Método llamado cuando el zombie muere
+    
     private void Die()
     {
         Debug.Log("Zombie has died.");
-        Destroy(gameObject); // Destruye el enemigo
+
+        //desactiva la barra de vida
+        healthSliderGameObject.SetActive(false);
+
+        
+        Destroy(gameObject);
     }
 }

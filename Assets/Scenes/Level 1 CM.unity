@@ -1172,7 +1172,7 @@ RectTransform:
   m_Father: {fileID: 1040675906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1248,7 +1248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73914516, y: 0.10353373}
   m_AnchorMax: {x: 0.98114514, y: 0.35746035}
-  m_AnchoredPosition: {x: 1.1343536, y: -1.5440521}
+  m_AnchoredPosition: {x: 1.1343536, y: -1.5440369}
   m_SizeDelta: {x: -2.7312012, y: -0.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404293937
@@ -1573,7 +1573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.177}
   m_AnchorMin: {x: 0.042000003, y: 0.90200007}
   m_AnchorMax: {x: 0.37800002, y: 0.97200006}
-  m_AnchoredPosition: {x: -0.2998047, y: -0.3000183}
+  m_AnchoredPosition: {x: -0.29978943, y: -0.3000183}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494697478
@@ -1666,7 +1666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26285487, y: 0.10353373}
   m_AnchorMax: {x: 0.5, y: 0.35746035}
-  m_AnchoredPosition: {x: -0.36561584, y: -1.5440521}
+  m_AnchoredPosition: {x: -0.36561584, y: -1.5440369}
   m_SizeDelta: {x: -0.7312012, y: -0.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573519487
@@ -2848,7 +2848,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.10353373}
   m_AnchorMax: {x: 0.73914516, y: 0.35746035}
-  m_AnchoredPosition: {x: 0.88435364, y: -1.5440521}
+  m_AnchoredPosition: {x: 0.88435364, y: -1.5440369}
   m_SizeDelta: {x: -0.7312012, y: -0.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908540449
@@ -4245,7 +4245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1106199716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4568,7 +4568,7 @@ Transform:
   m_GameObject: {fileID: 1165611896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.430218, y: -3.3094897, z: 0}
+  m_LocalPosition: {x: 1.74, y: 32.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4621,6 +4621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2664ac5dee7d264c83d5660d85ff7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 20
 --- !u!1 &1183289452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6735,7 +6736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02216709, y: 0.10353373}
   m_AnchorMax: {x: 0.26285487, y: 0.35746035}
-  m_AnchoredPosition: {x: -0.36543274, y: -1.0441437}
+  m_AnchoredPosition: {x: -0.36543274, y: -1.0441284}
   m_SizeDelta: {x: -2.7312012, y: -1.9116974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553358436
@@ -8673,8 +8674,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1183289453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00005340576, y: 0}
   m_SizeDelta: {x: 62.219, y: 30.0051}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9275,6 +9276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieBoy
       objectReference: {fileID: 0}
+    - target: {fileID: 2771795427144987238, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
+      propertyPath: attackForce
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 3033295332577312071, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.8
@@ -9319,6 +9324,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1106199717}
+    - target: {fileID: 4132316136013956206, guid: b1812b0f350baea45aab00475cfa26f5, type: 3}
+      propertyPath: healthSliderGameObject
+      value: 
+      objectReference: {fileID: 1106199715}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

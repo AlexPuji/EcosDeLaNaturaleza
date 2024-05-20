@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 263329663}
-  loadingTime: 20
+  loadingTime: 15
   targetLevelName: Level 1 CM
   pressAnyButtonMessage: {fileID: 914437487}
 --- !u!4 &1481970689

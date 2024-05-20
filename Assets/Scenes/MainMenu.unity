@@ -772,7 +772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 724716255}
+  optionsButton: {fileID: 1445579976}
   sceneToLoad: SelectMode
+  optionsScene: Options
 --- !u!1 &1076294753
 GameObject:
   m_ObjectHideFlags: 0

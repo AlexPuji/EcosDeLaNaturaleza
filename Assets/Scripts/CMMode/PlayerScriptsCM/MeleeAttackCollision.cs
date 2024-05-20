@@ -30,7 +30,7 @@ public class MeleeAttackCollision : MonoBehaviour
             }
 
             // Aplica el daño al enemigo
-            collision.gameObject.GetComponent<zombieEnemy>().TakeDamage(damageAmount);
+            collision.gameObject.GetComponent<ZombieEnemy>().TakeDamage(damageAmount);
 
             // Ha pegado al enemigo
             hasHitEnemy = true;

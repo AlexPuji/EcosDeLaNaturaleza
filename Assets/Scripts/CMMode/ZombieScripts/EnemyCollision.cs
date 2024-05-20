@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     private PlayerController playerController;
+    public float attackForce = 4000f; // Fuerza de retroceso al jugador
 
     private void Start()
     {
@@ -13,14 +14,18 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")) // Verificar si la colisión es con el jugador.
+        if (other.gameObject.CompareTag("Player")) // Colisión con el jugador para hacer daño
         {
             Debug.Log("Zombie collided with player.");
 
             if (playerController != null)
             {
-                float damageAmount = 10f; // Define aquí la cantidad de daño que inflige el enemigo
+                float damageAmount = 10f; // Daño del enemigo
                 playerController.TakeDamage(damageAmount);
+
+                // Aplicar fuerza de retroceso al jugador
+                Vector2 pushDirection = (other.transform.position - transform.position).normalized;
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(pushDirection * attackForce);
             }
             else
             {

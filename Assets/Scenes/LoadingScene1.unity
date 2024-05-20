@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.1838152, b: 0.09985757, a: 1}
+  m_Color: {r: 0.4784314, g: 0.28627452, b: 0.43921572, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1439171851}
-  loadingTime: 20
+  loadingTime: 10
   targetLevelName: Level 1
   pressAnyButtonMessage: {fileID: 12038135}
 --- !u!1 &1341751241

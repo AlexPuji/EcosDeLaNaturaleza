@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -9,8 +10,6 @@ public class PlayerController : MonoBehaviour
     private float currentHealth; // Vida actual del jugador
 
     public Slider healthSlider; // Referencia al Slider de vida en la interfaz de usuario
-
-    private float moveSpeed = 5f; // Velocidad de movimiento del jugador
 
     private static PlayerController instance;
 
@@ -64,26 +63,14 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player has died.");
         gameObject.SetActive(false);
+
+        // Carga la escena "SelectMode" después de un pequeño retraso
+        Invoke("LoadSelectModeScene", 2f); // Espera 2 segundos antes de cargar la escena
     }
 
-    private void Update()
+    private void LoadSelectModeScene()
     {
-        // Intento de delimitar el movimiento del jugador dentro del área del mapa
-        MapAreaBounds areaBounds = FindObjectOfType<MapAreaBounds>();
-        if (areaBounds != null)
-        {
-            Vector2 minBounds = areaBounds.minBounds;
-            Vector2 maxBounds = areaBounds.maxBounds;
-
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            Vector3 desiredPosition = transform.position + new Vector3(horizontalInput, verticalInput, 0f) * moveSpeed * Time.deltaTime;
-
-            desiredPosition.x = Mathf.Clamp(desiredPosition.x, minBounds.x, maxBounds.x);
-            desiredPosition.y = Mathf.Clamp(desiredPosition.y, minBounds.y, maxBounds.y);
-
-            transform.position = desiredPosition;
-        }
+        SceneManager.LoadScene("SelectMode");
     }
+
 }
