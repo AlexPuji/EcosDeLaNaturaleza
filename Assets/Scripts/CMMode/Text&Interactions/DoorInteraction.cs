@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public Text messageText; // Referencia al componente Text del mensaje
+    public Text messageText; 
 
-    private bool playerInRange = false; // Variable para rastrear si el jugador está dentro del rango de interacción
+    private bool playerInRange = false; 
 
     private void Start()
     {
-        // Asegúrate de que el mensaje esté desactivado al inicio
+        
         if (messageText != null)
         {
             messageText.gameObject.SetActive(false);
@@ -21,7 +21,7 @@ public class DoorInteraction : MonoBehaviour
 
     private void Update()
     {
-        // Verifica si el jugador está dentro del rango de interacción y muestra el mensaje
+        
         if (playerInRange && messageText != null)
         {
             messageText.gameObject.SetActive(true);
@@ -31,10 +31,10 @@ public class DoorInteraction : MonoBehaviour
             messageText.gameObject.SetActive(false);
         }
 
-        // Verifica si el jugador presiona la tecla para interactuar
+        
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // Carga la escena del nivel principal
+            
             SceneManager.LoadScene("House1CM");
         }
     }
@@ -43,9 +43,9 @@ public class DoorInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // El jugador está dentro del rango de interacción
+            
             playerInRange = true;
-            Debug.Log("Player entered trigger zone."); // Mensaje de depuración
+            Debug.Log("Player entered trigger zone."); 
         }
     }
 
@@ -53,9 +53,9 @@ public class DoorInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // El jugador sale del rango de interacción
+            
             playerInRange = false;
-            Debug.Log("Player exited trigger zone."); // Mensaje de depuración
+            Debug.Log("Player exited trigger zone."); 
         }
     }
 }

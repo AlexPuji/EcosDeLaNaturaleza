@@ -17,11 +17,11 @@ public class OptionsPanelController : MonoBehaviour
             // Pausar o reanudar el tiempo según el estado del panel de opciones
             if (panelActive)
             {
-                Time.timeScale = 0f; // Pausar el tiempo
+                Time.timeScale = 0f; // Pausar el temps
             }
             else
             {
-                Time.timeScale = 1f; // Reanudar el tiempo
+                Time.timeScale = 1f; // Reanudar el temps
             }
         }
     }

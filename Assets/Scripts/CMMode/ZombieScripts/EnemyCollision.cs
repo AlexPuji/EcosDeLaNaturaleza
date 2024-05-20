@@ -14,7 +14,7 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")) // Colisión con el jugador para hacer daño
+        if (other.gameObject.CompareTag("Player")) 
         {
             Debug.Log("Zombie collided with player.");
 
@@ -23,7 +23,7 @@ public class EnemyCollision : MonoBehaviour
                 float damageAmount = 10f; // Daño del enemigo
                 playerController.TakeDamage(damageAmount);
 
-                // Aplicar fuerza de retroceso al jugador
+                
                 Vector2 pushDirection = (other.transform.position - transform.position).normalized;
                 other.gameObject.GetComponent<Rigidbody2D>().AddForce(pushDirection * attackForce);
             }

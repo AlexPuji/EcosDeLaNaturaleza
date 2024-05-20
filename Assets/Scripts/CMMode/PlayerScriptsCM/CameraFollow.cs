@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            // Si no se encuentra al jugador, intenta buscarlo nuevamente
+            
             FindPlayer();
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeAttackCollision : MonoBehaviour
 {
     public int damageAmount = 7;
-    public float attackForce = 500f; // Intensidad del retroceso
+    public float attackForce = 500f; 
     private Collider2D attackCollider;
     private bool hasHitEnemy = false;
 
@@ -22,48 +22,48 @@ public class MeleeAttackCollision : MonoBehaviour
             Rigidbody2D enemyRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
             if (enemyRigidbody != null)
             {
-                // Calcula la dirección del retroceso (hacia atrás desde el punto de impacto)
+                // retroceso direccio
                 Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
 
-                // Aplica la fuerza de retroceso al enemigo
+                //retroceso l enemic
                 enemyRigidbody.AddForce(pushDirection * attackForce);
             }
 
-            // Aplica el daño al enemigo
+            // dmg al enemic
             collision.gameObject.GetComponent<ZombieEnemy>().TakeDamage(damageAmount);
 
-            // Ha pegado al enemigo
+            
             hasHitEnemy = true;
 
-            // Desactivar el collider para la animación
+            
             StartCoroutine(DisableColliderForAnimation());
 
-            // Destruir el objeto después de un tiempo
+            //destruir despues de una estona
             StartCoroutine(DestroyAfterDelay());
         }
     }
 
     IEnumerator DisableColliderForAnimation()
     {
-        // Desactivar el collider
+        
         attackCollider.enabled = false;
 
-        // Esperar un segundo para la animación
+        
         yield return new WaitForSeconds(1f);
 
-        // Activar el collider
+        
         attackCollider.enabled = true;
 
-        // Reiniciar la bandera de golpe al enemigo
+        
         hasHitEnemy = false;
     }
 
     IEnumerator DestroyAfterDelay()
     {
-        // Esperar unos segundos para destruir el objeto
+        
         yield return new WaitForSeconds(1f);
 
-        // Destruir el objeto 
+        
         Destroy(gameObject);
     }
 

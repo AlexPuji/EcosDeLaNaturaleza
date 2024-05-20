@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Método llamado al inicio para inicializar la vida del jugador
+    
     private void Start()
     {
         currentHealth = maxHealth;
@@ -39,33 +39,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Método para que el jugador reciba daño
+    
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         Debug.Log("Player takes damage. Current health: " + currentHealth);
 
-        // Actualiza el valor del Slider de vida
+        
         if (healthSlider != null)
         {
             healthSlider.value = currentHealth;
         }
 
-        // Verifica si el jugador ha perdido toda su vida y muere
+        
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    // Método llamado cuando el jugador muere
+    
     private void Die()
     {
         Debug.Log("Player has died.");
         gameObject.SetActive(false);
 
-        // Carga la escena "SelectMode" después de un pequeño retraso
-        Invoke("LoadSelectModeScene", 2f); // Espera 2 segundos antes de cargar la escena
+        
+        Invoke("LoadSelectModeScene", 2f); 
     }
 
     private void LoadSelectModeScene()

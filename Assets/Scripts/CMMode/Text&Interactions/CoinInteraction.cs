@@ -8,11 +8,11 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerObjectCollector playerCoinCollector = other.GetComponent<PlayerObjectCollector>(); // Obtén el componente PlayerCoinCollector del jugador
+            PlayerObjectCollector playerCoinCollector = other.GetComponent<PlayerObjectCollector>(); 
             if (playerCoinCollector != null)
             {
-                playerCoinCollector.CollectObject(); // Recolecta la moneda
-                Destroy(gameObject); // Destruye la moneda
+                playerCoinCollector.CollectObject(); 
+                Destroy(gameObject); 
             }
         }
     }

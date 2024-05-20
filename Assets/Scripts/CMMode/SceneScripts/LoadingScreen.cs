@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
+    
+    //Script igual al de LoadingSceneFM
     public Slider slider;
-    public float loadingTime = 15f; // Loading time in seconds
-    public string targetLevelName = "Level 1 CM"; // Name of the level you want to load
-    public GameObject pressAnyButtonMessage; // Reference to the "Press any button" message GameObject
+    public float loadingTime = 15f; 
+    public string targetLevelName = "Level 1 CM"; 
+    public GameObject pressAnyButtonMessage; 
 
     private void Start()
     {
-        // Start loading the level asynchronously
+        
         StartCoroutine(LoadLevelAsync());
     }
 
@@ -22,38 +24,38 @@ public class LoadingScreen : MonoBehaviour
         float timer = 0f;
         bool showMessage = false;
 
-        // While the timer is less than the loading time, update the slider value
+        
         while (timer < loadingTime)
         {
-            timer += Time.deltaTime; // Increase the timer by the time passed since the last frame
-            float progress = Mathf.Clamp01(timer / loadingTime); // Calculate the progress based on the timer and loading time
-            slider.value = progress; // Update the slider value
+            timer += Time.deltaTime; 
+            float progress = Mathf.Clamp01(timer / loadingTime); 
+            slider.value = progress; 
 
-            // If the timer reaches 20 seconds and the message hasn't been shown yet, show the message
-            if (timer >= 20f && !showMessage)
+            
+            if (timer >= 15f && !showMessage)
             {
-                pressAnyButtonMessage.SetActive(true); // Show the message
-                showMessage = true; // Set the flag to true to indicate that the message has been shown
+                pressAnyButtonMessage.SetActive(true); 
+                showMessage = true; 
             }
 
-            yield return null; // Wait for one frame before continuing
+            yield return null; 
         }
 
-        // Wait for the player to press any button
+        
         while (!Input.anyKeyDown)
         {
-            yield return null; // Wait for one frame before checking input again
+            yield return null; 
         }
 
-        // Start loading the level asynchronously after the loading time has passed
+        
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(targetLevelName);
 
-        // While the level is loading, update the slider value
+        
         while (!loadingOperation.isDone)
         {
-            float progress = Mathf.Clamp01(loadingOperation.progress / 0.9f); // Normalize the progress between 0 and 1
-            slider.value = progress; // Update the slider value
-            yield return null; // Wait for one frame before continuing
+            float progress = Mathf.Clamp01(loadingOperation.progress / 0.9f); 
+            slider.value = progress; 
+            yield return null; 
         }
     }
 }

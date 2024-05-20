@@ -4,43 +4,43 @@ using UnityEngine;
 
 public class LockedDoorInteraction : MonoBehaviour
 {
-    public float interactDistance = 2f; // Distancia a la que el jugador puede interactuar
-    public GameObject messageText; // Objeto de texto para mostrar el mensaje
-    public bool isLocked = true; // Indica si la puerta está cerrada o no
+    public float interactDistance = 2f; 
+    public GameObject messageText; 
+    public bool isLocked = true; 
 
-    private bool playerInRange = false; // Variable para rastrear si el jugador está dentro del rango de interacción
+    private bool playerInRange = false; 
 
     private void Update()
     {
-        // Verifica si el jugador está dentro del rango de interacción y muestra el mensaje
+        
         if (playerInRange)
         {
-            // Verifica si el objeto de texto aún existe antes de intentar acceder a él
+            
             if (messageText != null)
             {
                 if (isLocked)
                 {
-                    messageText.SetActive(true); // Muestra el mensaje en pantalla
+                    messageText.SetActive(true); 
                 }
                 else
                 {
-                    Debug.Log("Presiona 'E' para entrar."); // Muestra el mensaje en la consola
+                    Debug.Log("Presiona 'E' para entrar."); 
                 }
             }
         }
         else
         {
-            // Verifica si el objeto de texto aún existe antes de intentar acceder a él
+            
             if (messageText != null)
             {
-                messageText.SetActive(false); // Oculta el mensaje cuando el jugador está fuera del rango
+                messageText.SetActive(false); 
             }
         }
 
-        // Verifica si el jugador presiona la tecla para interactuar
+        
         if (playerInRange && !isLocked && Input.GetKeyDown(KeyCode.E))
         {
-            // Aquí puedes realizar cualquier acción relacionada con la interacción, como abrir la puerta
+            
         }
     }
 
@@ -48,7 +48,7 @@ public class LockedDoorInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // El jugador está dentro del rango de interacción
+            
             playerInRange = true;
         }
     }
@@ -57,7 +57,7 @@ public class LockedDoorInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // El jugador sale del rango de interacción
+            
             playerInRange = false;
         }
     }
