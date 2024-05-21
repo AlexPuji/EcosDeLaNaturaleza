@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -39,33 +39,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         Debug.Log("Player takes damage. Current health: " + currentHealth);
 
-        
+
         if (healthSlider != null)
         {
             healthSlider.value = currentHealth;
         }
 
-        
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    
+    public void Heal(float healAmount)
+    {
+        currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth); // Asegura que la vida no exceda la vida máxima
+        Debug.Log("Player heals. Current health: " + currentHealth);
+
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
+    }
+
     private void Die()
     {
         Debug.Log("Player has died.");
         gameObject.SetActive(false);
 
-        
-        Invoke("LoadSelectModeScene", 2f); 
+
+        Invoke("LoadSelectModeScene", 2f);
     }
 
     private void LoadSelectModeScene()

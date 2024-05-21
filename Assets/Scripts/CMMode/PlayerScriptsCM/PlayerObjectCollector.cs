@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerObjectCollector : MonoBehaviour
 {
-    public int objectCount = 0; 
-    public Text objectCountText; 
+    public int objectCount = 0;
+    public Text objectCountText;
 
-    
     public void CollectObject()
     {
-        objectCount++; 
-        UpdateObjectCountText(); 
+        objectCount++;
+        UpdateObjectCountText();
     }
 
-    
+    public void AddObject(int count)
+    {
+        objectCount += count;
+        UpdateObjectCountText();
+    }
+
     private void UpdateObjectCountText()
     {
-        objectCountText.text = "x " + objectCount.ToString(); 
+        objectCountText.text = "x " + objectCount.ToString();
     }
 }
