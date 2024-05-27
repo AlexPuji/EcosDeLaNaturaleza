@@ -11,6 +11,8 @@ TagManager:
   - SecondSpawner
   - AmmoBox
   - Boot
+  - MeleeAttack
+  - SoundEffect
   layers:
   - Default
   - TransparentFX
