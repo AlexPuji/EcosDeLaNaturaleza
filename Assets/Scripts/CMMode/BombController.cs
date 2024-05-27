@@ -6,6 +6,7 @@ public class BombController : MonoBehaviour
 {
     private Animator animator;
     private Collider2D bombCollider;
+    private BombSoundController soundController; // Referencia al script del sonido
 
     private bool hasDetonated = false; //Para saber si la bomba ha explotado
     public int damageAmount = 20; // Daño que hará la bomba
@@ -14,6 +15,7 @@ public class BombController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         bombCollider = GetComponent<Collider2D>();
+        soundController = GetComponent<BombSoundController>(); // Obtener referencia al script del sonido
     }
 
     private IEnumerator DetonateBomb()
@@ -25,6 +27,9 @@ public class BombController : MonoBehaviour
             hasDetonated = true; // Marcar que la bomba ha detonado
 
             bombCollider.enabled = false;
+
+            // Reproducir el sonido de la explosión
+            soundController.PlayExplosionSound();
 
             // Esperar un segundo para que la animación de explosión se complete
             yield return new WaitForSeconds(1f);

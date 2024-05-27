@@ -14,12 +14,14 @@ public class ChestController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isOpen = false;
     private bool playerIsNear = false;
+    private ChestSoundController soundController; // Referencia al script de sonido
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = closedChestSprite;
         interactionMessage.SetActive(false); // Asegúrate de que el mensaje esté desactivado al inicio
+        soundController = GetComponent<ChestSoundController>(); // Obtener referencia al script de sonido
     }
 
     void Update()
@@ -35,7 +37,8 @@ public class ChestController : MonoBehaviour
         isOpen = true;
         spriteRenderer.sprite = openChestSprite;
         interactionMessage.SetActive(false);
-        SpawnItems(); 
+        soundController.PlayOpenSound(); // Llamar al método de sonido al abrir el cofre
+        SpawnItems();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,7 +46,7 @@ public class ChestController : MonoBehaviour
         if (other.CompareTag("Player") && !isOpen)
         {
             playerIsNear = true;
-            interactionMessage.SetActive(true); 
+            interactionMessage.SetActive(true);
         }
     }
 
@@ -52,7 +55,7 @@ public class ChestController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsNear = false;
-            interactionMessage.SetActive(false); 
+            interactionMessage.SetActive(false);
         }
     }
 
@@ -62,11 +65,8 @@ public class ChestController : MonoBehaviour
         {
             for (int i = 0; i < numberOfItemsToSpawn; i++)
             {
-               
                 GameObject itemToSpawn = itemsToSpawn[Random.Range(0, itemsToSpawn.Length)];
-                
                 Vector3 spawnPosition = transform.position + (Vector3)Random.insideUnitCircle * spawnRadius;
-                
                 if (itemToSpawn != null)
                 {
                     Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);

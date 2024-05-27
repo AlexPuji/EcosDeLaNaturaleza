@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FreneticGameScenes/LoadingScene1.unity
     guid: b267130e6598b6a449b446f06540bcd5
+  - enabled: 1
+    path: Assets/Scenes/CMGameScenes/Final Scene.unity
+    guid: 2ccdb8443b4589049ac5b4ebde8aaf6e
   m_configObjects: {}
