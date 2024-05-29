@@ -53,4 +53,5 @@ public class InteractionObjectsManager : MonoBehaviour
             interactionObjects.Remove(interactionObject);
         }
     }
+
 }
