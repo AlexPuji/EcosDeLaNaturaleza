@@ -51,8 +51,8 @@ public class PlayerControllerFM : MonoBehaviour
         Debug.Log("Player has died.");
         gameObject.SetActive(false);
 
-        // Carga la escena "SelectMode"
-        SceneManager.LoadScene("SelectMode");
+        
+        SceneManager.LoadScene("Final Scene");
     }
 
 }

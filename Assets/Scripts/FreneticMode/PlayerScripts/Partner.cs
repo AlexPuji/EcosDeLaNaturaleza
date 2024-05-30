@@ -4,37 +4,38 @@ using UnityEngine;
 
 public class Partner : MonoBehaviour
 {
-    public Transform target; 
-    public float moveSpeed = 5f; 
-    public float shootingRange = 10f; 
-    public GameObject bulletPrefab; 
-    public float bulletSpeed = 10f; 
-    public float fireRate = 1f; 
-    public float followDistance = 2f; 
-    private float nextFireTime = 0f; 
+    public Transform target;
+    public float moveSpeed = 5f;
+    public float shootingRange = 10f;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
+    public float fireRate = 1f;
+    public float followDistance = 2f;
+    public AudioSource shootAudioSource; // Referencia al AudioSource para el sonido de disparo
+    private float nextFireTime = 0f;
 
     void Update()
     {
-        
+
         if (target != null)
         {
-            
+
             Vector3 targetPosition = target.position;
             Vector3 moveDirection = (targetPosition - transform.position).normalized;
 
-            
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, shootingRange);
             foreach (Collider2D collider in colliders)
             {
                 if (collider.CompareTag("Enemy"))
                 {
-                    
+
                     Shoot(collider.transform.position);
                     break;
                 }
             }
 
-            
+
             Vector3 targetPositionWithDistance = targetPosition - moveDirection * followDistance;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionWithDistance, moveSpeed * Time.deltaTime);
         }
@@ -42,20 +43,26 @@ public class Partner : MonoBehaviour
 
     void Shoot(Vector3 targetPosition)
     {
-        
+
         if (Time.time >= nextFireTime)
         {
-            
+
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-            
+
             Vector3 shootDirection = (targetPosition - transform.position).normalized;
 
-            
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.velocity = shootDirection * bulletSpeed;
 
-            nextFireTime = Time.time + 1f / fireRate; 
+            // Reproducir el sonido de disparo si está configurado
+            if (shootAudioSource != null)
+            {
+                shootAudioSource.Play();
+            }
+
+            nextFireTime = Time.time + 1f / fireRate;
         }
     }
 }

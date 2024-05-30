@@ -1852,6 +1852,10 @@ MonoBehaviour:
   optionsMusic: {fileID: 8300000, guid: d0af27e493b7b4e13a636d71aa54cfa4, type: 3}
   loadingSceneMusic: {fileID: 8300000, guid: 94ce6af62b83c48288de1a33fdb5db12, type: 3}
   loadingScene1Music: {fileID: 8300000, guid: 14a1cf915de1c2448b200ab123c01445, type: 3}
+  finalSceneMusic: {fileID: 8300000, guid: 691b4a74c77d943928a35aa77878cf61, type: 3}
+  level1CMMusic: {fileID: 8300000, guid: 9e4206ce93236bc4da5754f6cbc7a622, type: 3}
+  level1Music: {fileID: 8300000, guid: c31ad8ab40e8cbc449375321cea49da8, type: 3}
+  house1CMMusic: {fileID: 8300000, guid: 9e4206ce93236bc4da5754f6cbc7a622, type: 3}
 --- !u!1 &1748792559
 GameObject:
   m_ObjectHideFlags: 0

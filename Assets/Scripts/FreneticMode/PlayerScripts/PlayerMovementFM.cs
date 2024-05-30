@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementFM : MonoBehaviour
 {
+    //identic al de Frenetic Mode
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 movementInput;

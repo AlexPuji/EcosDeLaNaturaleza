@@ -6333,6 +6333,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326170912}
   m_CullTransparentMesh: 1
+--- !u!1 &1329494461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329494463}
+  - component: {fileID: 1329494462}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1329494462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329494461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b60be39587348b408f67e5cd5a24a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1329494463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329494461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.229899, y: -4.120757, z: -0.085575946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332327278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,7 +6390,6 @@ GameObject:
   - component: {fileID: 1332327280}
   - component: {fileID: 1332327279}
   - component: {fileID: 1332327284}
-  - component: {fileID: 1332327285}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6465,18 +6508,6 @@ MonoBehaviour:
   inventoryPanel: {fileID: 843263210}
   coinCounter: {fileID: 1295679081}
   playerObjectCollector: {fileID: 1860193644}
---- !u!114 &1332327285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332327278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6bbf4610cc6554da6971cfeafdde86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1336656571
 GameObject:
   m_ObjectHideFlags: 0
@@ -9551,7 +9582,6 @@ GameObject:
   - component: {fileID: 1860193643}
   - component: {fileID: 1860193642}
   - component: {fileID: 1860193644}
-  - component: {fileID: 1860193645}
   - component: {fileID: 1860193646}
   - component: {fileID: 1860193649}
   - component: {fileID: 1860193647}
@@ -9792,18 +9822,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCount: 0
   objectCountText: {fileID: 1295679083}
---- !u!114 &1860193645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860193633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cbc0d192273fa8439c2b2c2e9bb3035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1860193646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10490,7 +10508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045059031}
-  - component: {fileID: 2045059032}
   - component: {fileID: 2045059033}
   m_Layer: 0
   m_Name: InteractionObjects
@@ -10519,18 +10536,6 @@ Transform:
   - {fileID: 1145400976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2045059032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045059030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67794e45ff32fb429f8d9f693407281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2045059033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11300,3 +11305,4 @@ SceneRoots:
   - {fileID: 973035673}
   - {fileID: 2061973014}
   - {fileID: 2045059031}
+  - {fileID: 1329494463}

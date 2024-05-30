@@ -25,18 +25,7 @@ public class InteractionObjectsManager : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    
 
     public void RegisterInteractionObject(GameObject interactionObject)
     {
