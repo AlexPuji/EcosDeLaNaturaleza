@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CMGameScenes/Level 1 CM.unity
     guid: 826b2763b5abfa34aa9aa6766834586c
   - enabled: 1
-    path: Assets/Scenes/CMGameScenes/House1CM.unity
-    guid: cdb6051091368204cb97a1f3de7b0592
-  - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 6fb27676e076d8c42ba2f36681d5a2e7
   - enabled: 1
@@ -35,7 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CMGameScenes/Final Scene.unity
     guid: 2ccdb8443b4589049ac5b4ebde8aaf6e
-  - enabled: 1
-    path: Assets/Scenes/SaveGameScene.unity
-    guid: 284b174d3bbd4304891da64ce9cc428f
   m_configObjects: {}

@@ -2346,37 +2346,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &65857482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 65857484}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &65857484
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65857482}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 232.91417, y: 127.970055, z: -1.1632265}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &75447403
 GameObject:
   m_ObjectHideFlags: 0
@@ -38840,7 +38809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9047087, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 15.999908, y: 16.798004}
+  m_AnchoredPosition: {x: 15.999893, y: 16.798004}
   m_SizeDelta: {x: 0.37269998, y: 18.9209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955889511
@@ -50285,7 +50254,7 @@ Transform:
   m_LocalScale: {x: 0.6735, y: 0.6563, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1777296039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1200320700
 AudioSource:
@@ -75841,6 +75810,7 @@ Transform:
   - {fileID: 863337654}
   - {fileID: 1006941630}
   - {fileID: 1406646585}
+  - {fileID: 1200320699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777681763
@@ -92157,7 +92127,8 @@ PrefabInstance:
       propertyPath: missionBoots
       value: 
       objectReference: {fileID: 451938500}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7650589796190909744, guid: eda28caa34e291248938b6f9b1ef208a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -92306,9 +92277,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1777296039}
-  - {fileID: 1200320699}
   - {fileID: 166852274}
   - {fileID: 848293214}
   - {fileID: 451938494}
   - {fileID: 1345057418}
-  - {fileID: 65857484}
